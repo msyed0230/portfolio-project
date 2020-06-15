@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v4.0.1">
-  <title>Mahmood Syed</title>
+  <title>{{ blog.title }}</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -52,47 +52,25 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="http://facebook.com/mahmoodsyed">Facebook</a>
-          <a class="nav-item nav-link" href="{% static 'Resume-Mahmood-Syed.pdf'%}">Resume</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link" href="{% static 'Resume-Mahmood-Syed.pdf' %}">Resume</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main role="main">
-
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1>Hi, I'm Mahmood.</h1>
-        <p class="lead text-muted">Hey, my name is Mahmood Syed and I love pizza. It's pretty dope.</p>
-        <p>
-          <a href="mailto:msyed0230@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'mahmood.png' %}" height="300"/>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row">
-
-          {% for job in jobs.all%}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
+    <div class="container">
 
 
+      <h1 class="text-center pt-3">{{ blog.title }}</h1>
+      <p class="text-center">{{ blog.pub_date }}</p>
+      <img class=".img-fluid" src="{{ blog.image.url }}"  />
 
-        </div>
-      </div>
+      <br />
+      <p> {{ blog.body }}</p>
     </div>
+
 
   </main>
 
